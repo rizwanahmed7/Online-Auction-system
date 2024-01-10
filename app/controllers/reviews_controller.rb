@@ -13,12 +13,12 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = @auctionproduct.reviews.new(review_param)
-    @review.user_id = current_user.id
+    @review = @auctionproduct.reviews.build(review_params.merge(user_id: current_user.id))
+
     if @review.save
-      redirect_to auctionproduct_reviews_path(@auctionproduct.id), notice: I18n.t('success.review')
+      redirect_to auctionproduct_reviews_path(@auctionproduct), notice: t('success.review')
     else
-      redirect_to new_auctionproduct_review_path, notice: I18n.t('failure.review')
+      redirect_to new_auctionproduct_review_path, notice: t('failure.review')
     end
   end
 
