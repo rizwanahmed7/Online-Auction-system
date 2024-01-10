@@ -1,0 +1,21 @@
+<h1 class="text-center"> Auction Progress </h1> 
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Bidders name </th>
+      <th scope="col">Bided Amount </th>
+      <th scope="col">Bid AT</th>
+    </tr>
+  </thead>
+  <% @bids.each do |bid| %>
+    <tbody>
+      <tr>
+      <th scope="row"><%=bid.user.name%></th>
+      <td><%=bid.bidamount%></td>
+      <td><%=bid.created_at%></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+

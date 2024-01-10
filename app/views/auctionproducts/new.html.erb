@@ -1,0 +1,24 @@
+<div class="card">
+
+  <%= form_with(model: @auctionproduct,url:  auction_auctionproducts_path , local: true) do |form| %>
+    <div class="card-body">
+      <% form.label :name %><br />
+      <%= form.text_field :name, autofocus: true,required: true, autocomplete: "name", class: "form-control", placeholder: "Name" %>
+    </div>
+
+    <div class="card-body">
+      <% form.label :minbids %><br />
+      <%= form.number_field :minproductbid, autofocus: true,required: true, min: 0, autocomplete: "minproductbid", class: "form-control", placeholder: "Minimum Product Bid" %>
+    </div>
+
+    <div class="card-body">
+      <% form.label :images %><br />
+      <%= form.file_field :images, multiple: true, class: "form-control", placeholder: "Product image" %>
+    </div>
+
+    <div class="card-body">
+      <%= form.submit "List Product " %>
+    </div>
+
+  <% end %>
+</div>

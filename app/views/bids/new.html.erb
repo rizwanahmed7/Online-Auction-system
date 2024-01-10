@@ -1,0 +1,14 @@
+<div class="card">
+
+  <%= form_with(model: @bid,url:  auctionproduct_bids_path , local: true) do |form| %>
+    <div class="card-body">
+      <% form.label :bidamount %><br />
+      <%= form.number_field :bidamount, autofocus: true,required: true, min: 0, autocomplete: "bidamount", class: "form-control", placeholder: "Bid Amount" %>
+    </div>
+
+    <div class="card-body">
+      <%= form.submit "Enter Bid " %>
+    </div>
+
+  <% end %>
+</div>

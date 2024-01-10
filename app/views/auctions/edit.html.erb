@@ -1,0 +1,10 @@
+<h1>Update Auction Status</h1>
+<%= form_with model: @auction,method: :patch, local: true do |f| %>
+  <%= f.label :status %>
+  <%= f.select :status, Auction.statuses.keys %>
+  <%= f.submit %>
+<% end %>   
+
+
+<%= link_to 'Show', @auction %> |
+<%= link_to 'Back', auctions_path %>

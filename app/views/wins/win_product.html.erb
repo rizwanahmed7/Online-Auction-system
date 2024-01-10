@@ -1,0 +1,18 @@
+<h2 class="text-center bg-primary">All Auctions</h2>
+<br><br>
+<div class="panel panel-default ">
+<% @winning_products.each do |winning_product| %>
+  <div class="panel-heading">
+    <strong>Auction Product Title : </strong>
+    <%= winning_product.auctionproduct.name %>
+  </div>
+  <div class="panel-heading">
+    <strong>You Paid : </strong>
+    <%= number_to_currency(find_max_bid(winning_product.auctionproduct)) %></h3>
+  </div>
+  <div class="actions text-center">
+    <%= link_to 'Write Review', new_auctionproduct_review_path(winning_product.auctionproduct.id),  class: "btn btn-primary"%> 
+  </div>
+  <br><br>
+<%end%>
+</div>

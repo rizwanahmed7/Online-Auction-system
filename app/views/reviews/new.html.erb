@@ -1,0 +1,14 @@
+<div class="card">
+
+  <%= form_with(model: @review,url:  auctionproduct_reviews_path , local: true) do |form| %>
+    <div class="card-body">
+      <% form.label :feedback %><br />
+      <%= form.text_field :feedback, autofocus: true,required: true, min: 0, autocomplete: "feedback", class: "form-control", placeholder: "Give Review " %>
+    </div>
+
+    <div class="card-body">
+      <%= form.submit "Confirm Review " %>
+    </div>
+
+  <% end %>
+</div>

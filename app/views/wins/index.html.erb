@@ -1,0 +1,25 @@
+<h1 class="text-center bg-primary"> Auction Winners List </h1> 
+<br><br>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Winner name </th>
+        <th scope="col">winning Bid Amount </th>
+        <th scope="col">Winning Auction Product  </th>
+        <th scope="col">Win AT  </th>
+      </tr>
+      </thead>
+      <% @wins.each do |win| %>
+      <tbody>
+      <tr>
+      <th scope="row"><%=win.user.name%></th>
+      <td><%=win.bid.bidamount%></td>
+      <td><%=win.auctionproduct.name%></td>
+      <td><%=win.created_at.strftime("%m/%d/%Y %I:%M %p")%></td>
+      </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+
+

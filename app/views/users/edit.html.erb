@@ -1,0 +1,6 @@
+<h1>Update User Role</h1>
+<%= form_with model: @user,method: :patch, local: true do |f| %>
+  <%= f.label :role %>
+  <%= f.select :role, User.roles.keys %>
+  <%= f.submit %>
+<% end %>   

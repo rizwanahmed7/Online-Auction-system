@@ -1,0 +1,39 @@
+<nav class="navbar navbar-dark bg-secondary">
+  <div class="container-fluid">
+      <div class="navbar-header ">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#alignment-example" aria-expanded="false">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+  <a class="navbar-brand" href="#">Online Auction System</a>
+      </div>
+    <div class="collapse navbar-collapse" id="alignment-example">
+      <ul class="nav navbar-nav">
+      <% if user_signed_in? %>
+         <li><%= link_to "sign out", destroy_user_session_path, method: :delete%></li>
+         <% if current_user.admin? || current_user.seller?%>
+          <li><%= link_to 'Create Auction' ,  new_auction_path%></li>   
+        <%end%>   
+        <% if current_user.admin? %>
+          <li><%= link_to 'User Management' ,  users_path%></li>
+        <%end%>
+        <% if current_user.seller? || current_user.admin? %>
+          <li><%= link_to 'Product Management' ,  auctionproducts_path%></li>
+        <%end%> 
+
+        <li><%= link_to 'All Auctions' ,  auctions_path%></li>
+        <li><%= link_to 'All winner' ,  wins_path%></li>
+         <%if current_user.buyer?%>
+          <li><%= link_to 'Purchased  Products' ,  winningproducts_wins_path%></li>
+         <%end%>
+        <% else %>
+           <li><%= link_to 'Sign in' , new_user_session_path%></li>
+      <% end %>
+      </ul>
+      </li>
+      </ul>
+    </div>
+  </div>
+</nav>

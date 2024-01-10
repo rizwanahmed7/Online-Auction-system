@@ -1,0 +1,48 @@
+<h2 class="text-center bg-primary">All Auctions</h2>
+<% @auctions.each do |auction| %>
+  <div class="panel panel-default text-center">
+  <% if check_auction_status(auction) %>
+    <div class="panel-heading">
+        <strong>Auction Name : </strong>
+        <%= auction.name %></h3>
+        <br>
+    </div>
+    <div class="panel-heading">
+        <strong>Start Date : </strong>
+        <%= auction.starttime.strftime("%m/%d/%Y %I:%M %p") %></h3>
+        <br>
+    </div>
+    <div class="panel-heading">
+        <strong>End Date : </strong>
+        <%= auction.endtime.strftime("%m/%d/%Y %I:%M %p") %></h3>
+        <br>
+    </div>
+    <div class="panel-heading">
+        <strong>Minimum Bids : </strong>
+        <%= auction.minbids %></h3>
+        <br>
+    </div>
+    <div class="panel-heading">
+      <% if check_auction_time(auction) %>
+        <%= link_to 'Show', auction, class: "btn btn-primary" %>
+        <%= link_to 'List Product', new_auction_auctionproduct_path(auction) , class: "btn btn-primary"%>
+      <%end%>
+    </div>
+    <% if auction_change_status_button(auction) %>
+      <div class="panel-heading">
+        <%= link_to 'Approve Auction', edit_auction_path(auction.id),  class: "btn btn-success" %> 
+      </div>
+    <%end%>
+  <%end%>
+  <% if check_auction_status(auction) == false  %>
+    <div class="panel-heading bg-danger">
+        <strong class= "bg-danger" >Waiting for Admin Approval Auction ID: </strong>
+        <%= auction.id %></h3>
+        <br>
+    </div>
+  <%end%>
+  </div>
+<% end %>
+
+
+

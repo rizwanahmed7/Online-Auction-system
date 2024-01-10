@@ -1,0 +1,33 @@
+<h1 class="text-center bg-primary">Auction</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <strong>Auction Name : </strong>
+    <%= @auction.name %></h3>
+    <br>
+  </div>
+  <div class="panel-heading">
+    <strong>Auction Start Time : </strong>
+    <%= @auction.starttime.strftime("%m/%d/%Y %I:%M %p") %></h3>
+    <br>
+  </div>
+  <div class="panel-heading">
+    <strong>Auction End Time : </strong>
+    <%= @auction.endtime.strftime("%m/%d/%Y %I:%M %p") %></h3>
+    <br>
+  </div>
+  <div class="panel-heading">
+    <strong>Auction Minimum Bids : </strong>
+    <%= @auction.minbids %></h3>
+    <br>
+  </div>
+  <h1 class="text-center bg-primary">Listed Products</h1>
+  <div class="panel-heading text-center">
+    <%= render @auction.auctionproducts %>
+    <br>
+  </div>
+  </div>
+</div>
+<div class="actions">
+  <%= link_to 'Back', auctions_path, class: "btn btn-primary"  %>
+</div>
+
